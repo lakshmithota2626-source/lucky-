@@ -5,8 +5,13 @@ import Home from './pages/Home';
 import Registration from './pages/Registration';
 
 function App() {
+  // Automatically detect if deployed under a repository subpath (e.g. /lucky-/) or root (/)
+  const basename = window.location.pathname.startsWith('/lucky-')
+    ? '/lucky-'
+    : '/';
+
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <BrowserRouter basename={basename}>
       <div className="app-container">
         <Navbar />
         <main className="main-content">
